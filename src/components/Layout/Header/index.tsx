@@ -1,3 +1,4 @@
+import { SocialMedia } from '../../SocialMedia'
 import * as C from './styles'
 // import PokemonLogo from '/src/assets/background-pokeball.svg'
 import { ReactComponent as PokemonLogo } from '/src/assets/logo-pokemon.svg'
@@ -7,6 +8,7 @@ export const Header = () => {
     <div className='main-container'>
       <C.Container>
         <PokemonLogo />
+        <SocialMedia />
       </C.Container>
     </div>
   )
