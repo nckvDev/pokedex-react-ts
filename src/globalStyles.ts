@@ -14,6 +14,7 @@ export const GlobalStyles = createGlobalStyle`
     background: #060B28;
     color: #ffffff;
     font-family: 'Montserrat', sans-serif;
+    list-style-type: none;
 
     &::-webkit-scrollbar {
       width: 1rem;               
