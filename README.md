@@ -3,17 +3,17 @@
 ## 📷 Screenshot
 [![Screenshot](https://github.com/carlosdancr/pokedex-react/blob/main/public/screenshot.png?raw=true "Screenshot")](https://github.com/carlosdancr/pokedex-react/blob/main/public/screenshot.png?raw=true "Screenshot")
 
-## 📝 Descrição do projeto
-Essa Pokédex foi feita em ReactJS + TypeScript. Inicialmente o boilerplate da aplicação foi criado utilizando o Vite, que tem se mostrado bastante performático em aplicações front-end. Foi utilizado Syled-components devido à grande necessidade de manipular o CSS para gerar estilos condicionais. Também foi utilizado a biblioteca Material UI para criar a paginação da aplicação. Para finalizar, todos os dados dos pokémons foram pegos da API: PokéApi.
+## 📝 Project description
+This Pokédex was made in ReactJS + TypeScript. Initially, the application's boilerplate was created using Vite, which has shown itself to be quite performant in front-end applications. We used Syled-components due to the great need to manipulate CSS to generate conditional styles. The Material UI library was also used to create the application's pagination. Finally, all the pokémon data was taken from the API: PokéApi.
 
-## 💻 Features do projeto
-- Opção de pesquisar pokémon por nome ou ID
-- Filtrar pokémons pelo tipo
-- Paginação 
+## 💻 Project features
+- Option to search pokemon by name or ID
+- Filter pokemons by type
+- Pagination 
 - Lazy Loading
-- Responsividade 
-- Validação de formulário
-- Validação de dados da API 
+- responsiveness
+- form validation
+- API data validation
 
 ## 🚀 Tecnologias e ferramentas utilizadas
 - ReactJS
@@ -31,5 +31,5 @@ Essa Pokédex foi feita em ReactJS + TypeScript. Inicialmente o boilerplate da 
  - [MUI](https://mui.com/pt/)
  - [PokéAPI](https://pokeapi.co/)
 
-## 📊 Status do projeto
-✅ Concluído
+## 📊 project status
+✅ Concluded
