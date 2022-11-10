@@ -7,6 +7,7 @@ import imgSrc from '../../assets/img-charizard-min.png'
 import { Pokemon } from '../../types/Pokemon'
 import { Header } from '../Layout/Header'
 import { PokemonType } from '../PokemonType'
+import { fetchPokemon } from '../../api/fetchPokemon'
 
 type HeroSectionProps = {
   setModal: (value: boolean) => void
@@ -15,7 +16,9 @@ type HeroSectionProps = {
 
 export const HeroSection = ({ setModal, setPokemonData }: HeroSectionProps) => {
   const handleClick = async () => {
-    //
+    const { data } = await fetchPokemon('charizard')
+    setPokemonData(data)
+    setModal(true)
   }
 
   return (

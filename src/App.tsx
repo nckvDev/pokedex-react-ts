@@ -9,6 +9,7 @@ function App() {
   return (
     <>
       <HeroSection setModal={setModal} setPokemonData={setPokemonData} />
+      {pokemonData && modal && <h1></h1>}
     </>
   )
 }
