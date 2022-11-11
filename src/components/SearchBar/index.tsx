@@ -1,5 +1,7 @@
 import React from 'react'
+import * as C from './styles'
 import { Pokemon } from '../../types/Pokemon'
+import { HomeButton } from '../HomeButton'
 
 type SearchBarProps = {
   setPokemonList: (data: Pokemon[]) => void
@@ -9,10 +11,24 @@ type SearchBarProps = {
   setLoading: (value: boolean) => void
   setPage: (value: number) => void
   setShowPagination: (value: boolean) => void
-  disableButton: boolean
+  disabledButton: boolean
+  setDisabledButton: (value: boolean) => void
   searchBarRef: React.MutableRefObject<HTMLDivElement>
 }
 
 export const SearchBar = (props: SearchBarProps) => {
-  return <div>SearchBar</div>
+  return (
+    <div className='main-container' ref={props.searchBarRef}>
+      <C.Container>
+        <HomeButton
+          setPokemonList={props.setPokemonList}
+          setLoading={props.setLoading}
+          setPage={props.setPage}
+          setShowPagination={props.setShowPagination}
+          disabledButton={props.disabledButton}
+          setDisabledButton={props.setDisabledButton}
+        />
+      </C.Container>
+    </div>
+  )
 }
