@@ -7,6 +7,8 @@ import imgSrc from '../../assets/img-charizard-min.png'
 import { Pokemon } from '../../types/Pokemon'
 import { Header } from '../Layout/Header'
 import { PokemonType } from '../PokemonType'
+import { fetchPokemon } from '../../api/fetchPokemon'
+import { Waves } from '../Waves'
 
 type HeroSectionProps = {
   setModal: (value: boolean) => void
@@ -15,7 +17,9 @@ type HeroSectionProps = {
 
 export const HeroSection = ({ setModal, setPokemonData }: HeroSectionProps) => {
   const handleClick = async () => {
-    //
+    const { data } = await fetchPokemon('charizard')
+    setPokemonData(data)
+    setModal(true)
   }
 
   return (
@@ -24,7 +28,7 @@ export const HeroSection = ({ setModal, setPokemonData }: HeroSectionProps) => {
       <div className='main-container'>
         <C.Content>
           <C.CharizardData>
-            <C.CharizardNumber>#766</C.CharizardNumber>
+            <C.CharizardNumber>#666</C.CharizardNumber>
             <C.CharizardTypes>
               <PokemonType type={'fire'} tabIndex={false} />
               <PokemonType type={'flying'} tabIndex={false} />
@@ -50,6 +54,8 @@ export const HeroSection = ({ setModal, setPokemonData }: HeroSectionProps) => {
           </C.CharizardImg>
         </C.Content>
       </div>
+
+      <Waves />
     </C.Container>
   )
 }
