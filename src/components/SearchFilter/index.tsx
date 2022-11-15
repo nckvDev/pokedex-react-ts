@@ -4,6 +4,7 @@ import { fetchPokemonByType } from '../../api/fetchPokemonByType'
 import { Pokemon } from '../../types/Pokemon'
 import { pokemonTypes } from '../../pokemonTypes'
 import { PokemonType } from '../PokemonType'
+import { Slide } from '../Slide'
 
 type SearchFilterProps = {
   pokemonAmount: number
@@ -39,9 +40,11 @@ export const SearchFilter = (props: SearchFilterProps) => {
   return (
     <C.Container>
       <C.Title>ค้นหาตามประเภท</C.Title>
-      {pokemonTypes.map(({ name }) => (
-        <PokemonType key={name} type={name} tabIndex={true} handleClick={handleClick} />
-      ))}
+      <Slide>
+        {pokemonTypes.map(({ name }) => (
+          <PokemonType key={name} type={name} tabIndex={true} handleClick={handleClick} />
+        ))}
+      </Slide>
     </C.Container>
   )
 }
