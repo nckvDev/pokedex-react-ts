@@ -10,6 +10,10 @@ export const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     background: #060B28;
     color: #ffffff;
