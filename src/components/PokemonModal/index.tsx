@@ -2,7 +2,7 @@ import * as C from './styles'
 import { useMedia } from '../../hooks/useMedia'
 import { pokemonTypes } from '../../pokemonTypes'
 import { Pokemon } from '../../types/Pokemon'
-import { SkeletonLoading } from '../../helper/SkeletonLoading'
+import { SkeletonLoading } from '../helper/SkeletonLoading'
 import { PokemonType } from '../PokemonType'
 
 import { ReactComponent as WeightIcon } from '../../assets/icon-weight.svg'
