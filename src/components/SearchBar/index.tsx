@@ -3,6 +3,7 @@ import * as C from './styles'
 import { Pokemon } from '../../types/Pokemon'
 import { HomeButton } from '../HomeButton'
 import { SearchFilter } from '../SearchFilter'
+import { SearchField } from '../SearchField'
 
 type SearchBarProps = {
   setPokemonList: (data: Pokemon[]) => void
@@ -37,6 +38,7 @@ export const SearchBar = (props: SearchBarProps) => {
           setShowPagination={props.setShowPagination}
           setDisabledButton={props.setDisabledButton}
         />
+        <SearchField setPokemonList={props.setPokemonList} setError={props.setError} setLoading={props.setLoading} />
       </C.Container>
     </div>
   )
