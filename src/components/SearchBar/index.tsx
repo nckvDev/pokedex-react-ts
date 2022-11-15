@@ -2,6 +2,8 @@ import React from 'react'
 import * as C from './styles'
 import { Pokemon } from '../../types/Pokemon'
 import { HomeButton } from '../HomeButton'
+import { SearchFilter } from '../SearchFilter'
+import { SearchField } from '../SearchField'
 
 type SearchBarProps = {
   setPokemonList: (data: Pokemon[]) => void
@@ -28,6 +30,15 @@ export const SearchBar = (props: SearchBarProps) => {
           disabledButton={props.disabledButton}
           setDisabledButton={props.setDisabledButton}
         />
+        <SearchFilter
+          setPokemonList={props.setPokemonList}
+          pokemonAmount={props.pokemonAmount}
+          setPokemonAmount={props.setPokemonAmount}
+          setLoading={props.setLoading}
+          setShowPagination={props.setShowPagination}
+          setDisabledButton={props.setDisabledButton}
+        />
+        <SearchField setPokemonList={props.setPokemonList} setError={props.setError} setLoading={props.setLoading} />
       </C.Container>
     </div>
   )
