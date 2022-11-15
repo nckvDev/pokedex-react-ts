@@ -2,6 +2,7 @@ import React from 'react'
 import * as C from './styles'
 import { Pokemon } from '../../types/Pokemon'
 import { HomeButton } from '../HomeButton'
+import { SearchFilter } from '../SearchFilter'
 
 type SearchBarProps = {
   setPokemonList: (data: Pokemon[]) => void
@@ -26,6 +27,14 @@ export const SearchBar = (props: SearchBarProps) => {
           setPage={props.setPage}
           setShowPagination={props.setShowPagination}
           disabledButton={props.disabledButton}
+          setDisabledButton={props.setDisabledButton}
+        />
+        <SearchFilter
+          setPokemonList={props.setPokemonList}
+          pokemonAmount={props.pokemonAmount}
+          setPokemonAmount={props.setPokemonAmount}
+          setLoading={props.setLoading}
+          setShowPagination={props.setShowPagination}
           setDisabledButton={props.setDisabledButton}
         />
       </C.Container>
