@@ -27,6 +27,12 @@ function App() {
   }, [])
 
   useEffect(() => {
+    const html = document.documentElement
+
+    modal ? (html.style.overflow = 'hidden') : (html.style.overflow = 'initial')
+  }, [modal])
+
+  useEffect(() => {
     setError(false)
   }, [pokemonList])
 
