@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { fetchPokemonList } from './api/fetchPokemonList'
 import { HeroSection } from './components/HeroSection'
+import { Footer } from './components/Layout/Footer'
 import { Pokedex } from './components/Pokedex'
 import { PokemonModal } from './components/PokemonModal'
 import { SearchBar } from './components/SearchBar'
@@ -19,11 +20,11 @@ function App() {
   const searchBarRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    ;async () => {
+    ;(async () => {
       setLoading(true)
       setPokemonList(await fetchPokemonList(1))
       setLoading(false)
-    }
+    })()
   }, [])
 
   useEffect(() => {
@@ -68,6 +69,7 @@ function App() {
         searchBarRef={searchBarRef}
         disabledButton={disabledButton}
       />
+      <Footer />
       {pokemonData && modal && <PokemonModal setModal={setModal} pokemonData={pokemonData} />}
     </>
   )
