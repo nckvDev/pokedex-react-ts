@@ -1,33 +1,77 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import { useEffect, useRef, useState } from 'react'
+import { fetchPokemonList } from './api/fetchPokemonList'
+import { HeroSection } from './components/HeroSection'
+import { Footer } from './components/Layout/Footer'
+import { Pokedex } from './components/Pokedex'
+import { PokemonModal } from './components/PokemonModal'
+import { SearchBar } from './components/SearchBar'
+import { Pokemon } from './types/Pokemon'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [modal, setModal] = useState(false)
+  const [pokemonData, setPokemonData] = useState<Pokemon>()
+  const [pokemonList, setPokemonList] = useState<Pokemon[]>([])
+  const [pokemonAmount, setPokemonAmount] = useState(9)
+  const [error, setError] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [page, setPage] = useState(1)
+  const [showPagination, setShowPagination] = useState(true)
+  const [disabledButton, setDisabledButton] = useState(false)
+  const searchBarRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    ;(async () => {
+      setLoading(true)
+      setPokemonList(await fetchPokemonList(1))
+      setLoading(false)
+    })()
+  }, [])
+
+  useEffect(() => {
+    const html = document.documentElement
+
+    modal ? (html.style.overflow = 'hidden') : (html.style.overflow = 'initial')
+  }, [modal])
+
+  useEffect(() => {
+    setError(false)
+  }, [pokemonList])
 
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
+    <>
+      <HeroSection setModal={setModal} setPokemonData={setPokemonData} />
+      <SearchBar
+        setPokemonList={setPokemonList}
+        pokemonAmount={pokemonAmount}
+        setPokemonAmount={setPokemonAmount}
+        setError={setError}
+        setLoading={setLoading}
+        setPage={setPage}
+        setShowPagination={setShowPagination}
+        disableButton={disabledButton}
+        setDisabledButton={setDisabledButton}
+        searchBarRef={searchBarRef}
+      />
+      <Pokedex
+        setModal={setModal}
+        setPokemonData={setPokemonData}
+        pokemonList={pokemonList}
+        setPokemonList={setPokemonList}
+        pokemonAmount={pokemonAmount}
+        setPokemonAmount={setPokemonAmount}
+        error={error}
+        loading={loading}
+        setLoading={setLoading}
+        page={page}
+        setPage={setPage}
+        showPagination={showPagination}
+        setShowPagination={setShowPagination}
+        searchBarRef={searchBarRef}
+        disabledButton={disabledButton}
+      />
+      <Footer />
+      {pokemonData && modal && <PokemonModal setModal={setModal} pokemonData={pokemonData} />}
+    </>
   )
 }
 
